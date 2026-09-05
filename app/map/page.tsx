@@ -16,7 +16,7 @@ export default function MapPage() {
     <div className="space-y-3">
       <p className="text-sm text-slate-400">
         Green = open, amber = watch, orange = restricted, red = blocked. Blue dots are GPS
-        consignments. Dark tiles keep the control-room look; click any line for the risk explanation.
+        consignments. Click any line for the risk explanation.
       </p>
       <div className="overflow-hidden rounded-2xl border border-white/10">
         <NerMap data={data} />
