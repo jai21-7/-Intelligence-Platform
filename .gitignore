@@ -1,0 +1,12 @@
+next
+node_modules
+.next
+out
+dist
+coverage
+*.log
+.DS_Store
+.vercel
+.env
+.env.local
+data/live-store.json
