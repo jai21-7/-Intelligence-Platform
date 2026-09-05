@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { LocaleProvider } from "@/components/LocaleProvider";
+import { SnapshotProvider } from "@/components/SnapshotProvider";
+import { Shell } from "@/components/Shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,7 +15,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <LocaleProvider>
+          <SnapshotProvider>
+            <Shell>{children}</Shell>
+          </SnapshotProvider>
+        </LocaleProvider>
+      </body>
     </html>
   );
 }

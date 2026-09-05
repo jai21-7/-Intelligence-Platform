@@ -1,6 +1,67 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #06101c;
+  --panel: #0c1a2e;
+}
+
 body {
   margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(16, 185, 129, 0.16), transparent 50%),
+    radial-gradient(900px 400px at 100% 0%, rgba(245, 158, 11, 0.1), transparent 45%),
+    var(--bg);
+  color: #e2e8f0;
   font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+.card {
+  background: color-mix(in srgb, var(--panel) 88%, black);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(52, 211, 153, 0.5);
+}
+
+.btn-primary {
+  background: #34d399;
+  color: #022c22;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pill-open { background: #064e3b; color: #6ee7b7; }
+.pill-watch { background: #713f12; color: #fde68a; }
+.pill-restricted { background: #7c2d12; color: #fdba74; }
+.pill-blocked { background: #7f1d1d; color: #fca5a5; }
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #0b1220;
+  border-radius: 16px;
+  font-family: inherit;
 }
