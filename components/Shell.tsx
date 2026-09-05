@@ -23,9 +23,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen">
-      <header className="border-b border-white/10 bg-[#07111f]/90 backdrop-blur sticky top-0 z-20">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3">
-          <div className="mr-4">
+      <header className="border-b border-white/10 bg-[#07111f]/90 backdrop-blur sticky top-0 z-30">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center">
+          <div className="shrink-0">
             <p className="text-[11px] uppercase tracking-[0.22em] text-amber-300">{tr("appTag")}</p>
             <h1 className="font-display text-lg text-white md:text-xl">{tr("appName")}</h1>
           </div>
