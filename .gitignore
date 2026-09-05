@@ -1,6 +1,7 @@
 next
 node_modules
 .next
+tsconfig.tsbuildinfo
 out
 dist
 coverage
