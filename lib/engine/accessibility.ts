@@ -45,7 +45,7 @@ export function districtConnectivity(risks: RoadRisk[]): DistrictStatus[] {
 export function emergencySpine(risks: RoadRisk[]) {
   const statuses = districtConnectivity(risks);
   const reachable = new Set(statuses.filter((d) => d.reachable).map((d) => d.districtId));
-  const roads = [];
+  const roads: { roadId: string; accessibility: RoadRisk["accessibility"]; km: number }[] = [];
   for (const d of statuses) {
     if (!d.reachable || d.districtId === "kamrup") continue;
     const plan = planRoute("kamrup", d.districtId, ROADS, risks, JUNCTIONS);
