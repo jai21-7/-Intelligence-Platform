@@ -57,6 +57,13 @@ export function SnapshotProvider({ children }: { children: ReactNode }) {
   }, [refresh]);
 
   useEffect(() => {
+    const id = setInterval(() => {
+      tick().catch(() => undefined);
+    }, 8000);
+    return () => clearInterval(id);
+  }, [tick]);
+
+  useEffect(() => {
     const on = () => setOnline(true);
     const off = () => setOnline(false);
     setOnline(navigator.onLine);
