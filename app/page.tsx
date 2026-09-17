@@ -89,11 +89,46 @@ export default function DashboardPage() {
           </div>
           <div className="card">
             <h2 className="mb-3 font-display text-xl">{tr("emergency")}</h2>
-            <p className="text-sm text-slate-300">
-              Hub is Guwahati (Kamrup Metro). Open corridors from the hub are the disaster-time spine.
-              Blocked Himalayan axes (Tawang, NH-306, Kohima–Imphal) need restoration or airlift.
+            <p className="mb-3 text-sm text-slate-300">
+              Hub is Guwahati (Kamrup Metro). These corridors are still usable from the hub
+              during the current risk picture — the disaster-time spine.
+            </p>
+            <ul className="space-y-2 text-sm">
+              {data.emergency.roads.slice(0, 8).map((r) => {
+                const road = data.roads.find((x) => x.id === r.roadId);
+                return (
+                  <li key={r.roadId} className="flex items-center justify-between gap-2 rounded-lg bg-white/5 p-2">
+                    <span>
+                      {road?.name} · {r.km} km
+                    </span>
+                    <Pill status={r.accessibility} />
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="mt-3 text-xs text-slate-400">
+              {data.emergency.reachableDistrictIds.length} / {data.districts.length} districts still
+              reachable by road.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="card">
+        <h2 className="mb-3 font-display text-xl">Rainfall on monitored corridors</h2>
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          {[...data.weather]
+            .sort((a, b) => b.rainfallMm - a.rainfallMm)
+            .slice(0, 8)
+            .map((w) => {
+              const road = data.roads.find((r) => r.id === w.roadId);
+              return (
+                <div key={w.roadId} className="rounded-lg bg-white/5 p-3 text-sm">
+                  <p className="text-slate-200">{road?.name}</p>
+                  <p className="text-amber-200">{w.rainfallMm} mm · {w.warning}</p>
+                </div>
+              );
+            })}
         </div>
       </section>
 
