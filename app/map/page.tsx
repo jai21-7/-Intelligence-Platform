@@ -16,10 +16,11 @@ export default function MapPage() {
     <div className="space-y-3">
       <p className="text-sm text-slate-400">
         Green = open, amber = watch, orange = restricted, red = blocked. Blue dots are GPS
-        consignments. Click any line for the risk explanation.
+        consignments. Cyan lines are the current disaster-time spine from Guwahati. Click any
+        line for the risk explanation.
       </p>
       <div className="overflow-hidden rounded-2xl border border-white/10">
-        <NerMap data={data} />
+        <NerMap data={data} highlightRoadIds={data.emergency.roads.map((r) => r.roadId)} />
       </div>
     </div>
   );
