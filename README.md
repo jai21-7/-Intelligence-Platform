@@ -24,7 +24,12 @@ This platform helps planners and field officials:
 7. Work in **low-network** areas with offline save-and-sync
 8. Send **multilingual** notifications (English, Hindi, Assamese)
 
-## How to run (after later commits add the app)
+## Start here if you are a beginner
+
+Open **[START_HERE.md](./START_HERE.md)** and follow Day 1 → Day 5.
+Do not begin in `app/` — begin in `lib/data/types.ts`.
+
+## How to run the app
 
 ```bash
 npm install
